@@ -1,0 +1,10 @@
+Classification Report
+
+              precision    recall  f1-score   support
+
+     Healthy       0.91      0.95      0.93        44
+   unhealthy       0.96      0.92      0.94        53
+
+    accuracy                           0.94        97
+   macro avg       0.94      0.94      0.94        97
+weighted avg       0.94      0.94      0.94        97

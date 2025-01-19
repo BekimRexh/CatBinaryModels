@@ -38,7 +38,7 @@ raw_train_dataset = tf.keras.preprocessing.image_dataset_from_directory(
     './conjuctivitis_detection/HD Dataset',
     labels='inferred',
     label_mode='binary',
-    validation_split=0.01, # Low validation split to use most images for training, 
+    validation_split=0.2, # Low validation split to use most images for training, 
     subset='training',
     seed=123,
     image_size=(512, 512), # High resolution to detect subtle conjunctivitis symptoms
@@ -49,7 +49,7 @@ validation_dataset = tf.keras.preprocessing.image_dataset_from_directory(
     './conjuctivitis_detection/HD Dataset',
     labels='inferred',
     label_mode='binary',
-    validation_split=0.01,
+    validation_split=0.2,
     subset='validation',
     seed=123,
     image_size=(512, 512),

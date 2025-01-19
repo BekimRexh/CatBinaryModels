@@ -5,8 +5,8 @@ from PIL import Image
 import glob
 
 # Paths
-dataset_path = "./cat_face_detection/Image Dataset"
-yolo_dataset_path = "./cat_face_detection/yolo_dataset"
+dataset_path = "./cat_body_detection/datasets/Image Dataset"
+yolo_dataset_path = "./cat_body_detection/datasets/yolo_dataset"
 os.makedirs(yolo_dataset_path, exist_ok=True)
 
 # Create YOLO structure
@@ -20,6 +20,7 @@ cat_images = [
     for f in os.listdir(os.path.join(dataset_path, "1 Cats"))
     if f.lower().endswith(('.jpg', '.jpeg', '.png'))
 ]
+
 
 # Get random images recursively from "2 Random Images" and all its subfolders
 random_images = glob.glob(os.path.join(dataset_path, "2 Random Images", "**", "*.*"), recursive=True)

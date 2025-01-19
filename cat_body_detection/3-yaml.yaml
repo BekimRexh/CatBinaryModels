@@ -1,5 +1,5 @@
 # cat_dataset.yaml
-train: C:/Users/bekim/OneDrive/Documents/VS Code/CatAppBinaryCnn/cat_face_detection/yolo_dataset/train/images
-val: C:/Users/bekim/OneDrive/Documents/VS Code/CatAppBinaryCnn/cat_face_detection/yolo_dataset/validation/images
+train: C:/Users/bekim/OneDrive/Documents/VS Code/CatBinaryModels/cat_body_detection/datasets/yolo_dataset/train/images
+val: C:/Users/bekim/OneDrive/Documents/VS Code/CatBinaryModels/cat_body_detection/datasets/yolo_dataset/validation/images
 nc: 1  # Number of classes (Cat)
 names: ['cat']  # Class names

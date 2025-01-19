@@ -9,18 +9,21 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
 
 # Load the trained model
-model = tf.keras.models.load_model('conjuctivitis_detection/finalConjunctModel.h5')
+model = tf.keras.models.load_model('conjuctivitis_detection/mobilenet_augmented_model.h5')
 
 # Print model summary to verify input shape
 # print(model.summary())
 
 # Path to the test dataset
-test_data_dir = 'conjuctivitis_detection/balanced-test-set'  # Update this with the correct path to your test dataset
-# test_data_dir = 'conjuctivitis_detection/binary_test_dataset'  # Update this with the correct path to your test dataset
-# test_data_dir = 'conjuctivitis_detection/binary_test_dataset_2'  # Update this with the correct path to your test dataset
+# test_data_dir = 'conjuctivitis_detection/ignoreFolders/Datasets/balanced-test-set'  
+# test_data_dir = 'conjuctivitis_detection/ignoreFolders/Datasets/binary_test_dataset'  
+# test_data_dir = 'conjuctivitis_detection/binary_test_dataset_2'  
+
+test_data_dir = 'conjuctivitis_detection/ignoreFolders/Datasets/realWorldTest' 
+
 
 # Create a folder to store misclassified images
-misclassified_dir = 'conjuctivitis_detection/misclassified'
+misclassified_dir = 'conjuctivitis_detection/ignoreFolders/Datasets/misclassified'
 os.makedirs(misclassified_dir, exist_ok=True)
 
 # Clear the misclassified folder if it already contains files
@@ -65,7 +68,7 @@ class_names = [inv_class_indices[0], inv_class_indices[1]]
 disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=class_names)
 disp.plot(cmap=plt.cm.Blues)
 plt.title('Confusion Matrix (Test Set)')
-plt.savefig('Confusion Matrix - Large Imbalanced Test Set.png', dpi=300)
+plt.savefig('Confusion Matrix.png', dpi=300)
 plt.show()
 
 # Generate classification report as a dictionary
@@ -81,12 +84,12 @@ report_df = report_df.drop(['accuracy', 'macro avg', 'weighted avg'])
 plt.figure(figsize=(8, 6))
 sns.heatmap(report_df.iloc[:, :-1], annot=True, cmap='Blues', fmt='.2f', cbar=False)
 
-plt.title('Classification Report (Test Set)')
+plt.title('Classification Report')
 plt.ylabel('Classes')
 plt.xlabel('Metrics')
 
 # Save the classification report plot
-plt.savefig('Classification Report - Large Imbalanced Test Set.png', dpi=300, bbox_inches='tight')
+plt.savefig('Classification Report.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # Variables to track correct predictions
@@ -124,5 +127,5 @@ print(f"Misclassified images have been copied to: {misclassified_dir}")
 # Save classification report to a text file (optional)
 report_text = classification_report(y_true, predicted_classes, target_names=class_names)
 with open('classification_report_test.txt', 'w') as f:
-    f.write('Classification Report (Large Imbalanced Test Set)\n\n')
+    f.write('Classification Report\n\n')
     f.write(report_text)

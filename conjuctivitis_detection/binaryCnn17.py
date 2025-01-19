@@ -19,7 +19,7 @@ raw_train_dataset = tf.keras.preprocessing.image_dataset_from_directory(
     subset='training',
     seed=123,
     image_size=(128, 128),
-    batch_size=4
+    batch_size=8
 )
 
 validation_dataset = tf.keras.preprocessing.image_dataset_from_directory(
@@ -30,7 +30,7 @@ validation_dataset = tf.keras.preprocessing.image_dataset_from_directory(
     subset='validation',
     seed=123,
     image_size=(128, 128),
-    batch_size=4
+    batch_size=8
 )
 
 # Get class names
